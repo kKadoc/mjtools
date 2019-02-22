@@ -1,0 +1,15 @@
+<div *ngIf="visible">
+  <h3>Config</h3>
+  <span (click)="visible=false">masquer</span>
+  <label>largeur :
+    <input [(ngModel)]="gridConfig.largeur" (keyup.enter)="configChanged()" (blur)="configChanged()">
+  </label>
+  <label>hauteur :
+    <input [(ngModel)]="gridConfig.hauteur" (keyup.enter)="configChanged()" (blur)="configChanged()">
+  </label>
+</div>
+
+<div *ngIf="!visible">
+  test
+
+</div>

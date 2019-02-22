@@ -1,0 +1,7 @@
+<app-map-menu [gridConfig]="gridConfig" (messageEvent)="receiveMessage($event)"></app-map-menu>
+<div class="ligne" *ngFor="let ligne of grid">
+    <span class="case" *ngFor="let cel of ligne">
+        {{cel}}
+    </span>
+</div>
+<app-map-grid></app-map-grid>
