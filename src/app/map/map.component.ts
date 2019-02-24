@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GridConfig } from './grid-config'
+import { CarteService } from './carte.service';
 
 @Component({
   selector: 'app-map',
@@ -7,31 +8,32 @@ import { GridConfig } from './grid-config'
   styleUrls: ['./map.component.css']
 })
 export class MapComponent implements OnInit {
-  gridConfig: GridConfig = {
-    largeur: 20,
-    hauteur: 15
-  }
+  cartes: GridConfig[];
+  gridConfig: GridConfig;
 
-  grid: string[][];
+  grid: boolean[][];
 
-  constructor() { }
+  private imgSrc;
+
+  constructor(private carteService: CarteService) { }
 
   ngOnInit() {
+    this.cartes = this.carteService.getCartes();
+    this.gridConfig = this.cartes[0]
     this.buildGrid();
   }
 
   receiveMessage($event) {
-    console.log($event);
     this.buildGrid();
   }
 
   buildGrid(){
+    this.imgSrc = this.gridConfig.fichier;
     this.grid = [];
     for(var cpt_ligne = 0; cpt_ligne < this.gridConfig.hauteur; ++cpt_ligne) {
       this.grid[cpt_ligne] = [];
       for(var cpt_col = 0; cpt_col < this.gridConfig.largeur; ++cpt_col) {
-        this.grid[cpt_ligne][cpt_col] = cpt_ligne + "-" + cpt_col;
-        console.log(cpt_ligne + "-" + cpt_col);
+        this.grid[cpt_ligne][cpt_col] = false;
       }
     }
   }

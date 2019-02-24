@@ -1,15 +1,49 @@
-<div *ngIf="visible">
+<div class="wrapper" *ngIf="visible">
+  <span class="mdi mdi-eye-off" (click)="visible=false"></span>
+  
+  <h3>Carte</h3>
+  <select [ngModel]="selectedMap" (change)="onMapChange($event)">
+    <option *ngFor="let c of cartes" [ngValue]="c">{{c.nom}}</option>
+  </select>
+  
   <h3>Config</h3>
-  <span (click)="visible=false">masquer</span>
   <label>largeur :
+    <button (click)="gridConfig.largeur=baisser(gridConfig.largeur); configChanged()">-</button>
     <input [(ngModel)]="gridConfig.largeur" (keyup.enter)="configChanged()" (blur)="configChanged()">
+    <button (click)="gridConfig.largeur=augmenter(gridConfig.largeur); configChanged()">+</button>
   </label>
+
   <label>hauteur :
+    <button (click)="gridConfig.hauteur=baisser(gridConfig.hauteur); configChanged()">-</button>
     <input [(ngModel)]="gridConfig.hauteur" (keyup.enter)="configChanged()" (blur)="configChanged()">
+    <button (click)="gridConfig.hauteur=augmenter(gridConfig.hauteur); configChanged()">+</button>
   </label>
+
+  <label>taille cellule :
+    <button (click)="gridConfig.taille=baisser(gridConfig.taille)">-</button>
+    <input [(ngModel)]="gridConfig.taille">
+    <button (click)="gridConfig.taille=augmenter(gridConfig.taille)">+</button>
+  </label>
+
+  <label>padding top :
+    <button (click)="gridConfig.paddingTop=baisser(gridConfig.paddingTop)">-</button>
+    <input [(ngModel)]="gridConfig.paddingTop">
+    <button (click)="gridConfig.paddingTop=augmenter(gridConfig.paddingTop)">+</button>
+  </label>
+
+  <label>padding left :
+    <button (click)="gridConfig.paddingLeft=baisser(gridConfig.paddingLeft)">-</button>
+    <input [(ngModel)]="gridConfig.paddingLeft">
+    <button (click)="gridConfig.paddingLeft=augmenter(gridConfig.paddingLeft)">+</button>
+  </label>
+
+  <label>transparent :
+    <input type="checkbox" [(ngModel)]="gridConfig.transparent">
+  </label>
+
+
 </div>
 
 <div *ngIf="!visible">
-  test
-
+  <span class="mdi mdi-eye" (click)="visible=true"></span>
 </div>

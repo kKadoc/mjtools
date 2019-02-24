@@ -1,7 +1,18 @@
-<app-map-menu [gridConfig]="gridConfig" (messageEvent)="receiveMessage($event)"></app-map-menu>
-<div class="ligne" *ngFor="let ligne of grid">
-    <span class="case" *ngFor="let cel of ligne">
-        {{cel}}
-    </span>
+<img [src]="imgSrc"/>
+
+<div class="wrapper"    
+    [style.padding-left.px]="gridConfig.paddingLeft"
+    [style.padding-top.px]="gridConfig.paddingTop"
+    [class.transparent]="gridConfig.transparent">
+    <div class="ligne" *ngFor="let ligne of grid" [style.width.px]="gridConfig.taille*(grid[0].length+1)">
+        <div class="case" *ngFor="let cel of ligne"
+            [class.hidden]="cel"
+            [style.width.px]="gridConfig.taille"
+            [style.height.px]="gridConfig.taille"
+            (click)="cel=!cel">
+
+        </div>
+    </div>
 </div>
-<app-map-grid></app-map-grid>
+
+<app-map-menu [gridConfig]="gridConfig" [cartes]="cartes" (messageEvent)="receiveMessage($event)"></app-map-menu>

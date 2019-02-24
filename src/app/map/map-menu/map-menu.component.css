@@ -8,8 +8,25 @@ input {
     text-align : center;
 }
 
-:host {
-    position : fixed;
-    height : 100%;
-    background : #CCC;  
+.wrapper {
+    background : rgba(220,220,220,0.9); 
+    padding : 10px; 
+}
+
+.mdi {
+    font-size : 20px;
+    position : absolute;
+    top : 5px;
+    right : 5px;
+    color: #999999;
+}
+
+h3 {
+    margin : 0;
+}
+
+div {
+    position: relative;
+    min-width : 30px;
+    min-height : 30px;
 }
