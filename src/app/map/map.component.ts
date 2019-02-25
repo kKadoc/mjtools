@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { GridConfig } from './grid-config'
 import { CarteService } from './carte.service';
+import { mapChildrenIntoArray } from '@angular/router/src/url_tree';
 
 @Component({
   selector: 'app-map',
@@ -10,7 +11,6 @@ import { CarteService } from './carte.service';
 export class MapComponent implements OnInit {
   cartes: GridConfig[];
   gridConfig: GridConfig;
-
   grid: boolean[][];
 
   private imgSrc;
@@ -24,6 +24,9 @@ export class MapComponent implements OnInit {
   }
 
   receiveMessage($event) {
+    console.log("message received");
+    this.gridConfig = $event;
+    console.log("gridConfig in map.component", this.gridConfig);
     this.buildGrid();
   }
 

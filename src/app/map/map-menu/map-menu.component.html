@@ -2,7 +2,7 @@
   <span class="mdi mdi-eye-off" (click)="visible=false"></span>
   
   <h3>Carte</h3>
-  <select [ngModel]="selectedMap" (change)="onMapChange($event)">
+  <select [(ngModel)]="gridConfig" (change)="onMapChange($event)">
     <option *ngFor="let c of cartes" [ngValue]="c">{{c.nom}}</option>
   </select>
   

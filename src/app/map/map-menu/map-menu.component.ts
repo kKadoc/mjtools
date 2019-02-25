@@ -10,27 +10,29 @@ export class MapMenuComponent implements OnInit {
   @Input() gridConfig: GridConfig;
   @Input() cartes: GridConfig[];
 
-  selectedMap: GridConfig;
+  //selectedMap: GridConfig;
 
   visible: boolean = true;
 
   constructor() { }
 
-  @Output() messageEvent = new EventEmitter<string>();
+  @Output() messageEvent = new EventEmitter<GridConfig>();
 
   ngOnInit() {
 
   }
 
   onMapChange($event) {
-    console.log($event);
-    console.log(this.selectedMap);
-    this.gridConfig.largeur = $event.largeur;
+    //console.log("event", $event);
+    //console.log("selectedMap", this.selectedMap);
+    //this.gridConfig.largeur = this.selectedMap.largeur;
+    //this.gridConfig.hauteur = this.selectedMap.hauteur;
     this.configChanged();
   }
 
   configChanged() {
-    this.messageEvent.emit("new Grid Config")
+    console.log("gridConfig in map-menu.component", this.gridConfig);
+    this.messageEvent.emit(this.gridConfig);
   }
 
   baisser(valeur) {

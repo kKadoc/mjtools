@@ -21,12 +21,12 @@ export class CarteService {
     },
     {
       nom: "Temple 2",
-      fichier: "./assets/cartes/camp-in-temple-ruins.jpg",
-      largeur: 10,
-      hauteur: 10,
-      taille: 50,
-      paddingLeft: 10,
-      paddingTop: 10,
+      fichier: "./assets/cartes/LS1SdYD.jpg",
+      largeur: 50,
+      hauteur: 38,
+      taille: 43,
+      paddingLeft: 50,
+      paddingTop: 39,
       transparent: true
     },
   ];
