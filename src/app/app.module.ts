@@ -8,6 +8,7 @@ import { MainMenuComponent } from './main-menu/main-menu.component';
 import { MapComponent } from './map/map.component';
 import { MapMenuComponent } from './map/map-menu/map-menu.component';
 import { MapGridComponent } from './map/map-grid/map-grid.component';
+import { AccueilComponent } from './accueil/accueil.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { MapGridComponent } from './map/map-grid/map-grid.component';
     MainMenuComponent,
     MapComponent,
     MapMenuComponent,
-    MapGridComponent
+    MapGridComponent,
+    AccueilComponent
   ],
   imports: [
     BrowserModule,

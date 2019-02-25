@@ -1,9 +1,28 @@
 nav {
-    background : #CCC;
+    background : #FFE082;
     margin : 0;
-    padding : 5px;
+    padding : 0px 15px;
+    overflow: hidden;
+    vertical-align: baseline;
 }
 
 h1 {
-    margin : 0;
+    margin : 0 40px 0 0;
+    display : inline-block;
+}
+
+.mdi {
+    font-size : 30px;
+    vertical-align: middle;
+    border-left : 1px solid white;
+    padding : 10px;
+    cursor : pointer;
+}
+
+.mdi:last-of-type {
+    border-right : 1px solid white;
+}
+
+.mdi:hover {
+    background : #FFD54F;
 }

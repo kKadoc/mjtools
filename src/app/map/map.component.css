@@ -34,9 +34,8 @@
 
 app-map-menu {
     position : absolute;
-    left : 10px;
+    left : 0px;
     top : 50px;
-    bottom : 10px; 
 }
 
 img {
